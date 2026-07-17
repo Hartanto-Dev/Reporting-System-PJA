@@ -1,408 +1,140 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Reporting PJA</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <!-- CSS -->
+    <title>Reporting System - Project Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
-
 <body>
-
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
-
         <div class="logo">
-
-            <div class="logo-circle">
-                <i class="fa-solid fa-bolt"></i>
-            </div>
-
-            <h2>PJ</h2>
-
+            <div class="logo-circle">📊</div>
+            <h2>Reporting System</h2>
         </div>
-
         <div class="nav-right">
-
             <div class="profile">
-
-                <img src="https://i.pravatar.cc/150?img=13" alt="profile">
-
+                <img src="https://via.placeholder.com/55" alt="Profile">
                 <div>
-
-                    <h4>Hartanto W.M</h4>
-                    <p>Project Manager</p>
-
+                    <h4>Hartanto</h4>
+                    <p>Admin</p>
                 </div>
-
             </div>
-
-            <button class="btn login">
-                <i class="fa-solid fa-right-to-bracket"></i>
-                Login
-            </button>
-
-            <button class="btn setting">
-
-                <i class="fa-solid fa-gear"></i>
-                Settings
-
-            </button>
-
+            <button class="btn login">Login</button>
+            <button class="btn setting">⚙️ Setting</button>
         </div>
-
     </nav>
 
-    <!-- ================= TITLE ================= -->
+    <!-- TITLE -->
+    <div class="title">
+        <h1>📋 Project Reporting Dashboard</h1>
+    </div>
 
-    <section class="title">
-
-        <h1>Reporting PJA</h1>
-
-    </section>
-
-    <!-- ================= KANBAN ================= -->
-
-    <section class="kanban">
-
-        <!-- TODO -->
-
+    <!-- KANBAN BOARD -->
+    <div class="kanban">
+        <!-- TO DO COLUMN -->
         <div class="column">
-
             <div class="column-header orange">
-
                 <div>
-
-                    <i class="fa-solid fa-clipboard-list"></i>
-
-                    <span>TO DO</span>
-
+                    <span>📌 TO DO</span>
                 </div>
-
                 <span id="todo-count">0</span>
-
             </div>
-
-            <div class="task-list" id="todo">
-
-                <div class="task" draggable="true">
-
-                    <h4>Membuat laporan progress proyek</h4>
-
-                    <small>17 Juli 2026</small>
-
-                </div>
-
-                <div class="task" draggable="true">
-
-                    <h4>Meeting dengan Tim</h4>
-
-                    <small>18 Juli 2026</small>
-
-                </div>
-
-                <div class="task" draggable="true">
-
-                    <h4>Review Requirement</h4>
-
-                    <small>19 Juli 2026</small>
-
-                </div>
-
-            </div>
-
-            <button class="add-task">
-
-                + Tambah Task
-
-            </button>
-
+            <div class="task-list" id="todo"></div>
+            <button class="add-task">+ Add Task</button>
         </div>
 
-        <!-- DOING -->
-
+        <!-- DOING COLUMN -->
         <div class="column">
-
             <div class="column-header blue">
-
                 <div>
-
-                    <i class="fa-solid fa-spinner"></i>
-
-                    <span>DOING</span>
-
+                    <span>⚙️ DOING</span>
                 </div>
-
                 <span id="doing-count">0</span>
-
             </div>
-
-            <div class="task-list" id="doing">
-
-                <div class="task" draggable="true">
-
-                    <h4>Dashboard Admin</h4>
-
-                    <small>20 Juli 2026</small>
-
-                </div>
-
-                <div class="task" draggable="true">
-
-                    <h4>Integrasi Database</h4>
-
-                    <small>22 Juli 2026</small>
-
-                </div>
-
-            </div>
-
-            <button class="add-task">
-
-                + Tambah Task
-
-            </button>
-
+            <div class="task-list" id="doing"></div>
+            <button class="add-task">+ Add Task</button>
         </div>
 
-        <!-- DONE -->
-
+        <!-- DONE COLUMN -->
         <div class="column">
-
             <div class="column-header green">
-
                 <div>
-
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    <span>DONE</span>
-
+                    <span>✅ DONE</span>
                 </div>
-
                 <span id="done-count">0</span>
-
             </div>
-
-            <div class="task-list" id="done">
-
-                <div class="task" draggable="true">
-
-                    <h4>Setup Laravel</h4>
-
-                    <small>10 Juli 2026</small>
-
-                </div>
-
-                <div class="task" draggable="true">
-
-                    <h4>Setup GitHub</h4>
-
-                    <small>11 Juli 2026</small>
-
-                </div>
-
-                <div class="task" draggable="true">
-
-                    <h4>Deploy Testing</h4>
-
-                    <small>13 Juli 2026</small>
-
-                </div>
-
-            </div>
-
-            <button class="add-task">
-
-                + Tambah Task
-
-            </button>
-
+            <div class="task-list" id="done"></div>
+            <button class="add-task">+ Add Task</button>
         </div>
 
-        <!-- AI -->
-
-        <div class="column ai">
-
+        <!-- AI SUMMARY COLUMN -->
+        <div class="column">
             <div class="column-header purple">
-
-                <div>
-
-                    <i class="fa-solid fa-robot"></i>
-
-                    <span>AI AGENT</span>
-
-                </div>
-
+                <span>🤖 AI SUMMARY</span>
             </div>
-
             <div class="ai-content">
-
-                <div class="robot">
-
-                    🤖
-
-                </div>
-
-                <h3>AI Summary</h3>
-
-                <p id="summary">
-
-                    Tekan tombol recap untuk membuat ringkasan pekerjaan secara otomatis.
-
-                </p>
-
-                <button id="aiBtn">
-
-                    Jalankan Rekap
-
-                </button>
-
+                <div class="robot">🤖</div>
+                <h3>Project Summary</h3>
+                <p id="summary">Drag tasks to update summary</p>
+                <button id="aiBtn">Generate Report</button>
             </div>
-
         </div>
+    </div>
 
-    </section>
-
-    <!-- ================= INFO ================= -->
-
-    <section class="info">
-
+    <!-- INFO SECTION -->
+    <div class="info">
         <div class="info-text">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-            Klik tombol Recap untuk mendapatkan ringkasan pekerjaan Anda.
-
+            <span id="weeklySummary">📊 Weekly Summary will appear here</span>
         </div>
+        <button id="recapBtn">📈 Generate Recap</button>
+    </div>
 
-        <button id="recapBtn">
-
-            <i class="fa-solid fa-chart-simple"></i>
-
-            Recap
-
-        </button>
-
-    </section>
-
-    <!-- ================= REPORT ================= -->
-
-    <section class="reports">
-
-        <!-- Weekly -->
-
+    <!-- REPORTS SECTION -->
+    <div class="reports">
+        <!-- WEEKLY REPORT -->
         <div class="report-card">
-
             <div class="report-title">
-
-                <h2>
-
-                    <i class="fa-solid fa-calendar-week"></i>
-
-                    Hasil Recap Mingguan
-
-                </h2>
-
-                <span>Minggu Ini</span>
-
+                <h2>Weekly Report</h2>
+                <span>This Week</span>
             </div>
-
             <div class="chart-box">
-
                 <canvas id="weeklyChart"></canvas>
-
             </div>
-
-            <div class="report-text" id="weeklySummary">
-
-                Belum ada recap minggu ini.
-
-            </div>
-
-        </div>
-
-        <!-- Monthly -->
-
-        <div class="report-card">
-
-            <div class="report-title">
-
-                <h2>
-
-                    <i class="fa-solid fa-calendar"></i>
-
-                    Hasil Recap Bulanan
-
-                </h2>
-
-                <span>Juli 2026</span>
-
-            </div>
-
-            <div class="chart-box">
-
-                <canvas id="monthlyChart"></canvas>
-
-            </div>
-
             <div class="report-text" id="monthlySummary">
-
-                Belum ada recap bulan ini.
-
+                📅 Weekly summary will be generated when you add tasks
             </div>
-
         </div>
 
-    </section>
+        <!-- MONTHLY REPORT -->
+        <div class="report-card">
+            <div class="report-title">
+                <h2>Monthly Report</h2>
+                <span>This Month</span>
+            </div>
+            <div class="chart-box">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+            <div class="report-text">
+                📊 Monthly progress is being tracked
+            </div>
+        </div>
+    </div>
 
-    <!-- ================= FOOTER ================= -->
-
+    <!-- FOOTER -->
     <footer>
-
         <div>
-
-            <h3>PJA</h3>
-
-            <p>PT Petirindo Jaya Abadi</p>
-
+            <h3>Reporting System</h3>
+            <p>&copy; 2024 Hartanto Project System. All rights reserved.</p>
         </div>
-
         <div>
-
-            © 2026 PT Petirindo Jaya Abadi
-
+            <p>Powered by Chart.js & Modern Web Technologies</p>
         </div>
-
-        <div>
-
-            v1.0.0
-
-        </div>
-
     </footer>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
